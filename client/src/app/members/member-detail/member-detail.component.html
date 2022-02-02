@@ -10,9 +10,9 @@
                 <strong>Age:</strong>
                 <p>{{member.age}}</p>
                 <strong>Last Active:</strong>
-                <p>{{member.lastActive}}</p>
+                <p>{{member.lastActive | timeago}}</p>
                 <strong>Member since:</strong>
-                <p>{{member.create}}</p>
+                <p>{{member.create | date : 'dd MMM yyyy' }}</p>
             </div>
             <div class="card-footer">
                 <div class="btn-group d-flex">

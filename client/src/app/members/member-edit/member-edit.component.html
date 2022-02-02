@@ -18,9 +18,9 @@
                 <strong>Age:</strong>
                 <p>{{member.age}}</p>
                 <strong>Last Active:</strong>
-                <p>{{member.lastActive}}</p>
+                <p>{{member.lastActive | timeago}}</p>
                 <strong>Member since:</strong>
-                <p>{{member.create}}</p>
+                <p>{{member.create | date : 'dd MMM yyyy'}}</p>
             </div>
             <div class="card-footer">
                 <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save changes</button>
