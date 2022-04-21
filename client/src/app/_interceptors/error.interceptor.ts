@@ -9,6 +9,7 @@ import { Observable, throwError } from 'rxjs';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { catchError } from 'rxjs/operators';
+import { TestErrorsComponent } from '../errors/test-errors/test-errors.component';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -31,8 +32,10 @@ export class ErrorInterceptor implements HttpInterceptor {
 
                 //flat() flaten multy level [[]] array into array []
                 throw modalStateErrors.flat();
-              }else{
+              }else if(error.error === 'obj'){
                 this.toastr.error(error.statusText, error.status);
+              }else{
+                this.toastr.error(error.error.title, error.status)
               }
               break;
             case 401:
